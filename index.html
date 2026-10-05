@@ -3,72 +3,136 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DRENCHER RESELLS</title>
+<title>Drencher Resells</title>
+<!-- 🛒 This link loads the styling for your shopping cart popup -->
+<link rel="preconnect" href="https://snipcart.com">
+<link rel="preconnect" href="https://snipcart.com">
+<link rel="stylesheet" href="https://snipcart.com/themes/v3.4.1/default/snipcart.css" />
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#0b0b0b;color:#fff;font-family:Arial,Helvetica,sans-serif}
-header{padding:28px 20px;text-align:center;border-bottom:1px solid #333;position:sticky;top:0;background:#0b0b0bf2;backdrop-filter:blur(8px);z-index:5}
-h1{margin:0;font-size:32px;letter-spacing:3px}
-nav{margin-top:14px}
-nav a{color:#fff;text-decoration:none;margin:0 10px;font-size:14px}
-.hero{padding:70px 20px;text-align:center}
-.hero h2{font-size:46px;margin:0 0 12px;letter-spacing:2px}
-.hero p{color:#bbb;font-size:17px}
-.btn{display:inline-block;margin-top:18px;padding:13px 22px;background:#fff;color:#000;text-decoration:none;font-weight:bold;border-radius:4px}
-section{padding:45px 20px;max-width:1100px;margin:auto}
-section h2{text-align:center;font-size:28px;margin-bottom:28px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
-.card{border:1px solid #333;background:#121212;padding:28px 18px;text-align:center;border-radius:8px}
-.card h3{margin:0 0 8px;font-size:21px}
-.card p{margin:0;color:#aaa;font-size:14px}
-.contact{text-align:center;background:#111;border-top:1px solid #222}
-.contact a{color:#fff}
-footer{text-align:center;padding:25px;color:#777;font-size:13px}
+body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #0b0b0b; color: #fff; }
+header { background-color: #000; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+header h1 { margin: 0; font-size: 24px; letter-spacing: 2px; text-transform: uppercase; }
+
+/* 🛒 This is your interactive Shopping Cart Top Button */
+.snipcart-checkout { background-color: #fff; color: #000; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; font-size: 16px; transition: background 0.2s; }
+.snipcart-checkout:hover { background-color: #cccccc; }
+
+.container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.product-card { background: #111; padding: 20px; border: 1px solid #222; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+.product-card img { max-width: 100%; height: 250px; object-fit: cover; margin-bottom: 15px; background: #1a1a1a; }
+.price { font-size: 20px; font-weight: bold; color: #aaa; margin-bottom: 10px; }
+
+.size-selector { margin-bottom: 15px; }
+.size-selector select { background: #222; color: #fff; border: 1px solid #444; padding: 8px; width: 100%; font-weight: bold; }
+
+/* 🖱️ This is the clickable Add to Cart Button */
+.buy-button { background-color: #fff; color: #000; border: none; padding: 12px; font-weight: bold; cursor: pointer; transition: background 0.2s; text-transform: uppercase; width: 100%; }
+.buy-button:hover { background-color: #cccccc; }
 </style>
 </head>
 <body>
+
 <header>
-  <h1>DRENCHER RESELLS</h1>
-  <nav>
-    <a href="#shop">Shop</a>
-    <a href="#brands">Brands</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<h1>Drencher Resells</h1>
+<!-- 🛒 Clicking this top button opens up the checkout side panel instantly -->
+<button class="snipcart-checkout">🛒 View Cart (<span class="snipcart-items-count">0</span>)</button>
 </header>
 
-<div class="hero">
-  <h2>DESIGNER STREETWEAR</h2>
-  <p>Authentic pieces. Clean fits. Resell-ready style.</p>
-  <a class="btn" href="#shop">SHOP NOW</a>
+<div class="container">
+<h2>Premium Denim ($150)</h2>
+<div class="products-grid">
+
+<!-- Amiri Jeans -->
+<div class="product-card">
+<img src="https://unsplash.com" alt="Amiri Jeans">
+<h3>Amiri Jeans</h3>
+<p class="price">$150.00</p>
+<div class="size-selector">
+<select onchange="this.parentElement.nextElementSibling.setAttribute('data-item-custom1-value', this.value)">
+<option value="28">Size 28</option><option value="29">Size 29</option><option value="30">Size 30</option>
+<option value="31">Size 31</option><option value="32">Size 32</option><option value="33">Size 33</option>
+</select>
+</div>
+<button class="buy-button snipcart-add-item" data-item-id="amiri-jeans" data-item-name="Amiri Jeans" data-item-price="150.00" data-item-url="/" data-item-custom1-name="Size" data-item-custom1-options="28|29|30|31|32|33" data-item-custom1-value="28">Add to Cart</button>
 </div>
 
-<section id="shop">
-  <h2>Featured</h2>
-  <div class="grid">
-    <div class="card"><h3>Supreme</h3><p>Streetwear pieces</p></div>
-    <div class="card"><h3>Ksubi</h3><p>Denim &amp; street style</p></div>
-    <div class="card"><h3>Amiri</h3><p>Designer denim</p></div>
-    <div class="card"><h3>BAPE</h3><p>Graphic T-shirts</p></div>
-  </div>
-</section>
+<!-- Purple Jeans -->
+<div class="product-card">
+<img src="https://unsplash.com" alt="Purple Jeans">
+<h3>Purple Brand Jeans</h3>
+<p class="price">$150.00</p>
+<div class="size-selector">
+<select onchange="this.parentElement.nextElementSibling.setAttribute('data-item-custom1-value', this.value)">
+<option value="28">Size 28</option><option value="29">Size 29</option><option value="30">Size 30</option>
+<option value="31">Size 31</option><option value="32">Size 32</option><option value="33">Size 33</option>
+</select>
+</div>
+<button class="buy-button snipcart-add-item" data-item-id="purple-jeans" data-item-name="Purple Brand Jeans" data-item-price="150.00" data-item-url="/" data-item-custom1-name="Size" data-item-custom1-options="28|29|30|31|32|33" data-item-custom1-value="28">Add to Cart</button>
+</div>
 
-<section id="brands">
-  <h2>Brands We Carry</h2>
-  <div class="grid">
-    <div class="card"><h3>SUPREME</h3><p>Limited streetwear</p></div>
-    <div class="card"><h3>KSUBI</h3><p>Premium denim</p></div>
-    <div class="card"><h3>AMIRI</h3><p>Designer jeans</p></div>
-    <div class="card"><h3>BAPE</h3><p>Streetwear tees</p></div>
-  </div>
-</section>
+<!-- Ksubi Jeans -->
+<div class="product-card">
+<img src="https://unsplash.com" alt="Ksubi Jeans">
+<h3>Ksubi Jeans</h3>
+<p class="price">$150.00</p>
+<div class="size-selector">
+<select onchange="this.parentElement.nextElementSibling.setAttribute('data-item-custom1-value', this.value)">
+<option value="28">Size 28</option><option value="29">Size 29</option><option value="30">Size 30</option>
+<option value="31">Size 31</option><option value="32">Size 32</option><option value="33">Size 33</option>
+</select>
+</div>
+<button class="buy-button snipcart-add-item" data-item-id="ksubi-jeans" data-item-name="Ksubi Jeans" data-item-price="150.00" data-item-url="/" data-item-custom1-name="Size" data-item-custom1-options="28|29|30|31|32|33" data-item-custom1-value="28">Add to Cart</button>
+</div>
+</div>
 
-<section id="contact" class="contact">
-  <h2>Contact DRENCHER RESELLS</h2>
-  <p>Email: <a href="mailto:causeyjames60@gmail.com">causeyjames60@gmail.com</a></p>
-  <p>Instagram: <a href="https://instagram.com/Drenchgothisrankup">@Drenchgothisrankup</a></p>
-  <p>Backup: <a href="https://instagram.com/Drench_resellss">@Drench_resellss</a></p>
-</section>
+<br><br>
+<h2>T-Shirts & Headwear ($80)</h2>
+<div class="products-grid">
 
-<footer>© 2026 DRENCHER RESELLS</footer>
+<!-- Bape T-Shirt -->
+<div class="product-card">
+<img src="https://unsplash.com" alt="Bape T-Shirt">
+<h3>Bape T-Shirt</h3>
+<p class="price">$80.00</p>
+<div class="size-selector">
+<select onchange="this.parentElement.nextElementSibling.setAttribute('data-item-custom1-value', this.value)">
+<option value="S">Size S</option><option value="M">Size M</option><option value="L">Size L</option>
+</select>
+</div>
+<button class="buy-button snipcart-add-item" data-item-id="bape-tshirt" data-item-name="Bape T-Shirt" data-item-price="80.00" data-item-url="/" data-item-custom1-name="Size" data-item-custom1-options="S|M|L" data-item-custom1-value="S">Add to Cart</button>
+</div>
+
+<!-- Chrome Hearts T-Shirt -->
+<div class="product-card">
+<img src="https://unsplash.com" alt="Chrome Hearts T-Shirt">
+<h3>Chrome Hearts T-Shirt</h3>
+<p class="price">$80.00</p>
+<div class="size-selector">
+<select onchange="this.parentElement.nextElementSibling.setAttribute('data-item-custom1-value', this.value)">
+<option value="S">Size S</option><option value="M">Size M</option><option value="L">Size L</option>
+</select>
+</div>
+<button class="buy-button snipcart-add-item" data-item-id="chrome-hearts-tshirt" data-item-name="Chrome Hearts T-Shirt" data-item-price="80.00" data-item-url="/" data-item-custom1-name="Size" data-item-custom1-options="S|M|L" data-item-custom1-value="S">Add to Cart</button>
+</div>
+
+<!-- Supreme Beanie -->
+<div class="product-card">
+<img src="https://unsplash.com" alt="Supreme Beanie">
+<h3>Supreme Beanie</h3>
+<p class="price">$80.00</p>
+<div class="size-selector">
+<select onchange="this.parentElement.nextElementSibling.setAttribute('data-item-custom1-value', this.value)">
+<option value="S">Size S</option><option value="M">Size M</option><option value="L">Size L</option>
+</select>
+</div>
+<button class="buy-button snipcart-add-item" data-item-id="supreme-beanie" data-item-name="Supreme Beanie" data-item-price="80.00" data-item-url="/" data-item-custom1-name="Size" data-item-custom1-options="S|M|L" data-item-custom1-value="S">Add to Cart</button>
+</div>
+</div>
+</div>
+
+<!-- 🌐 This background script drives the interactive cart functionality -->
+<script async src="https://snipcart.com/themes/v3.4.1/default/snipcart.js"></script>
+<div hidden id="snipcart" data-api-key="NDY3N2I0ZTctMzA0ZC00NzI5LTg2ZjUtM2VjYmYzYTRmYTU0NjM4NjM2NzgyNTMxMDY1ODg4"></div>
 </body>
 </html>
